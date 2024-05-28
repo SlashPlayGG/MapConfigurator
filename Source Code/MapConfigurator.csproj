@@ -1,15 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
+    <ItemGroup>
     <Reference Include="CounterStrikeSharp.API">
-       <HintPath>YOUR PATH HERE/CounterStrikeSharp.API.dll</HintPath>
+       <HintPath>C:\Users\Jonathan\Documents\Projects\SLASHPLAY\Source\counterstrikesharp-build-235-windows-3240a5e\addons\counterstrikesharp\api\CounterStrikeSharp.API.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;..\csgo\addons\counterstrikesharp\plugins\MapConfigurator\&quot;" />
+    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).pdb&quot; &quot;..\csgo\addons\counterstrikesharp\plugins\MapConfigurator\&quot;" />
+    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).deps.json&quot; &quot;..\csgo\addons\counterstrikesharp\plugins\MapConfigurator\&quot;" />
+</Target>
 
 </Project>

@@ -30,6 +30,10 @@ To install this on your server do the following:
 3). Edit the files in cfg/mapconfigs/ folder and sub folders to match your preferences
 4). Restart the server.
 
+## Build
+- CD to Source Code 
+- Build with: `dotnet build --configuration Release`
+- Remember correct version of .Net, currently 8.0
 
 ## Known Bugs & Issues
 - None.
